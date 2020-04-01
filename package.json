@@ -1,0 +1,21 @@
+{
+  "name": "mechcult-bot",
+  "version": "0.1.0",
+  "description": "Mechcult promotion control bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js > log"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "mechcult"
+  ],
+  "author": "Sergey Redko",
+  "dependencies": {
+    "dateformat": "^3.0.3",
+    "discord.js": "^12.1.1",
+    "dotenv": "^8.2.0"
+  }
+}
