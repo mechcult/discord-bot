@@ -35,7 +35,7 @@ client.on("messageReactionAdd", async (react, user) => {
         (react.emoji.name !== config.emoji) ||
         (user.id === client.user.id)) {
         return;
-    } else { console.log(time(d) + `\tGot reaction from ${user.tag}`); }
+    } else { console.log(time(d) + `\tGot vote from ${user.tag}`); }
 
     if (await member.then(m => m.roles.cache.has(config.role))) {
         console.log(time(d) + `\tUser has required role and reacted`)
