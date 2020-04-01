@@ -27,19 +27,21 @@ client.on('message', message => {
     }
 })
 
-client.on("messageReactionAdd", (react, user) => {
+client.on("messageReactionAdd", async (react, user) => {
     let member = react.message.guild.members.fetch(user.id)
+    
 
     if ((react.message.channel.id !== config.channel) ||
-        (react.emoji.name !== config.emoji) || 
+        (react.emoji.name !== config.emoji) ||
         (user.id === client.user.id)) {
         return;
-    } else {console.log(time(d) + `\tGot reaction from ${user.tag}`);}
+    } else { console.log(time(d) + `\tGot reaction from ${user.tag}`); }
 
-    if (member.then(m => m.roles.cache.has(config.role))) {
+    if (await member.then(m => m.roles.cache.has(config.role))) {
+        console.log(time(d) + `\tUser has required role and reacted`)
         if (react.count >= config.count + 1) {
             console.log(time(d) + `\tUser ${react.message.author.tag} was promoted`)
-            react.message.member.roles.add('633669166058176512')
+            react.message.member.roles.add(config.role)
         }
         return;
     } else {
