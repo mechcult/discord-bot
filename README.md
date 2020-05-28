@@ -1,10 +1,12 @@
 # discord-bot
 
-## .env file:
-```js
-TOKEN=%your bot token%
-CHANNEL=%channel id to watch%
-ROLE=%role user has to have to vote%
-EMOJI=%emoji displaying vote, i.e. ➕%
-COUNT=%required count of votes to be promoted%
+## config.json file:
+```json
+{
+    "token": "your bot token",
+    "channel": "channel id to watch", 
+    "role": "role user has to have to vote",
+    "emoji": "emoji displaying vote, i.e. ➕",
+    "count": "required count of votes to be promoted"
+}
 ```
