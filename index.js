@@ -34,25 +34,10 @@ client.on("raw", async event => {
     }
 })
 
-/*client.on("messageReactionAdd", async (react, user) => {
-    let member = react.message.guild.members.fetch(user.id)
-
-
-    if ((react.message.channel.id !== config.channel) ||
-        (react.emoji.name !== config.emoji) ||
-        (user.id === client.user.id)) {
-        return;
-    } else { console.log(`Got vote from ${user.tag}`); }
-
-    if (await member.then(m => m.roles.cache.has(config.role))) {
-        console.log(`User has required role and reacted`)
-        if (react.count >= config.count + 1) {
-            console.log(`User ${react.message.author.tag} was promoted`)
-            react.message.member.roles.add(config.role)
-        }
-        return;
-    } else {
-        console.log(`User ${user.tag} has no required role`)
-        react.users.remove(user);
+client.on("guildMemberAdd", m => {
+    let re = /.*(plum).*/gmi
+    if (m.user.username.match(re)) {
+        ch = await client.channels.fetch(config.pipis)
+        ch.send(`User <@${m.user.id}> joined your guild.`)
     }
-})*/
+})
