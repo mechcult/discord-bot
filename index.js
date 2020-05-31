@@ -34,7 +34,7 @@ client.on("raw", async event => {
     }
 })
 
-client.on("guildMemberAdd", m => {
+client.on("guildMemberAdd", async m => {
     let re = /.*(plum).*/gmi
     if (m.user.username.match(re)) {
         ch = await client.channels.fetch(config.pipis)
